@@ -15,7 +15,7 @@ def process_speech():
     pubc = rospy.Publisher('confidence', Int8)
     pubActive = rospy.Publisher('itf_listen_active', Bool)
 
-    keys = ["AIzaSyA4j0NkPDfPMNKjHSD6vk7h93Gne1t9lfQ"]
+    keys = ["AIzaSyCrI4f0on71JFmHl1UIQLZIlCUeTTNUi9c"]
 
     while not rospy.is_shutdown():
         cmdCopy = cmd2[:]
@@ -63,6 +63,8 @@ def process_speech():
                     pubc.publish(confidence)
                 else:
                     print "Number " + str(indexer) + " is " + alternatives[indexer]['transcript']
+                    pubs.publish(alternatives[indexer]['transcript'])
+                    pubc.publish(confidence)
 
                 indexer += 1
         else:
