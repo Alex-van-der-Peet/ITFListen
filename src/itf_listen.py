@@ -15,11 +15,27 @@ def process_speech():
     pubc = rospy.Publisher('confidence', Int8)
     pubActive = rospy.Publisher('itf_listen_active', Bool)
 
-    keys = ["AIzaSyCrI4f0on71JFmHl1UIQLZIlCUeTTNUi9c", "AIzaSyC1T-0P7g1vZ7Fjs216YoD1XRWP8xi6ME4"]
 
+    keys = ["AIzaSyAFygjZbN2MHH2stfoj4JzqonWctWxKQoY",
+        "AIzaSyB0KJ20Hu61LihTuZOilGGccKoirKaaj1M",
+        "AIzaSyBB1H15zfUezWeOhpJSPip57GS25zpDi54",
+        "AIzaSyAt45KPVubikEYglLViQ7Ijyp4vk6AdAfc",
+        "AIzaSyBPWoAKCSROZlcwN7DokO1JOhZ8OgxxZO0",
+        "AIzaSyCjELnUutglzEP5Cw0nc4keudaYkVnIhQ0",
+        "AIzaSyCrI4f0on71JFmHl1UIQLZIlCUeTTNUi9c",
+        "AIzaSyAI1_BkxPqHlakDYAGSsh96UaRpca5j7LE",
+        "AIzaSyD5jUzPm-ajshmXjKw2d4YiEbyNED9g3qc",
+        "AIzaSyAcout1WkipZo-siXHCnsCJiQJbuIvRG4s",
+        "AIzaSyDV8AQOciGeJpSx0sKkl9Xi6O-OZF3IygA",
+        "AIzaSyAM2aOh-HWEhH8XZI7foQycswpsjwEWsZo"]
+    #keys = [] # Doesn't work
+
+
+    #keys = [""]
     while not rospy.is_shutdown():
         cmdCopy = cmd2[:]
         keyToUse = random.choice(keys)
+        print "Key to use: " + keyToUse
         cmdCopy = cmdCopy.replace("REPLACEWITHKEY", keyToUse)
         args2 = shlex.split(cmdCopy)
 
