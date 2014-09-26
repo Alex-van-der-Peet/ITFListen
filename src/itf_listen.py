@@ -50,6 +50,8 @@ def process_speech():
 
             indexer = 0
 
+            done = False
+
             for lol in alternatives:
                 confidence = -1
                 try:
@@ -61,10 +63,16 @@ def process_speech():
                     print "Number " + str(indexer) + " is " + alternatives[indexer]['transcript'] + ", confidence is " + str(confidence)
                     pubs.publish(alternatives[indexer]['transcript'])
                     pubc.publish(confidence)
+                    done = True
                 else:
                     print "Number " + str(indexer) + " is " + alternatives[indexer]['transcript']
                     pubs.publish(alternatives[indexer]['transcript'])
                     pubc.publish(confidence)
+                    done = True
+                    break
+
+                if done:
+                    break
 
                 indexer += 1
         else:
