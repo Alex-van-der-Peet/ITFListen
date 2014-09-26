@@ -15,7 +15,7 @@ def process_speech():
     pubc = rospy.Publisher('confidence', Int8)
     pubActive = rospy.Publisher('itf_listen_active', Bool)
 
-    keys = ["AIzaSyCrI4f0on71JFmHl1UIQLZIlCUeTTNUi9c"]
+    keys = ["AIzaSyCrI4f0on71JFmHl1UIQLZIlCUeTTNUi9c", "AIzaSyC1T-0P7g1vZ7Fjs216YoD1XRWP8xi6ME4"]
 
     while not rospy.is_shutdown():
         cmdCopy = cmd2[:]
